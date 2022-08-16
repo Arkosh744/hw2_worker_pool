@@ -8,6 +8,8 @@ import (
 	"time"
 )
 
+const userCount, workerCount = 100, 10
+
 var actions = []string{"logged in", "logged out", "created record", "deleted record", "updated account"}
 
 type logItem struct {
@@ -80,7 +82,6 @@ func main() {
 	rand.Seed(time.Now().Unix())
 
 	startTime := time.Now()
-	const userCount, workerCount = 100, 10
 
 	jobs := make(chan User, userCount)
 	results := make(chan bool, userCount)
